@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Use composite action (cache deps)
-        uses: ./.github/actions/cach-action
+        uses: ./.github/action/cach-action
 
       - name: Lint code
         run: npm run lint
@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Use composite action (cache deps)
-        uses: ./.github/actions/cach-action
+        uses: ./.github/action/cach-action
 
       - name: Run lint
         run: npm run lint
@@ -51,7 +51,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Use composite action (cache + install)
-        uses: ./.github/actions/cach-action
+        uses: ./.github/action/cach-action
 
       - name: Build website
         run: npm run build
