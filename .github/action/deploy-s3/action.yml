@@ -11,7 +11,9 @@ inputs:
   directory:
     description: "The local directory to deploy to S3"
     required: true
-
+outputs:
+  deployment-url:
+    description: "The URL of the deployed S3 bucket"
 runs:
   using: "node20"
   main: "index.js"

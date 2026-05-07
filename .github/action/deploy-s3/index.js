@@ -18,7 +18,9 @@ async function run() {
     const command = `aws s3 sync ${directory} ${s3Uri} --region ${region}`;
 
     // Execute command
-    await exec.exec(command);
+    const deploymentUrl = `https://${bucketName}.s3.${region}.amazonaws.com`;
+    core.setOutput("deployment-url", deploymentUrl);
+
 }
 
 run();
