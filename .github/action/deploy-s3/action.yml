@@ -1,5 +1,5 @@
-name: "my frist github action by js"
+name: "my first github action by js"
 description: "This is my first github action by js"
 runs:
-  using: "node16"
+  using: "node20"
   main: "index.js"
