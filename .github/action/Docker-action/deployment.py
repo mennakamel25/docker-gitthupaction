@@ -5,9 +5,9 @@ from botocore.config import Config
 
 
 def run():
-    bucket = os.environ['INPUT_BUCKET']
-    bucket_region = os.environ['INPUT_BUCKET-REGION']
-    dist_folder = os.environ['INPUT_DIST-FOLDER']
+    bucket = os.environ['INPUT_BUCKET-NAME']
+    bucket_region = os.environ['INPUT_REGION']
+    dist_folder = os.environ['INPUT_DIRECTORY']
 
     configuration = Config(region_name=bucket_region)
 
