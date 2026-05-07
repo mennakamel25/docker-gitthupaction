@@ -26,6 +26,8 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
 
+      - name: my action in js 
+        uses: ./.github/action/deply-s3 
       - name: Use composite action (cache deps)
         uses: ./.github/action/cach-action
 
