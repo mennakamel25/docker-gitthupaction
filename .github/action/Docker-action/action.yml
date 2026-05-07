@@ -1,0 +1,19 @@
+name: "docker action by python"
+description: "This is a docker action by python"
+inputs:
+  bucket-name:
+    description: "The name of the S3 bucket to deploy to"
+    required: true
+  region:
+    description: "The AWS region where the S3 bucket is located"
+    required: true
+    default: "us-east-1"
+  directory:
+    description: "The local directory to deploy to S3"
+    required: true
+outputs:
+  deployment-url:
+    description: "The URL of the deployed S3 bucket"
+runs:
+  using: "docker"
+  image: "Dockerfile"
