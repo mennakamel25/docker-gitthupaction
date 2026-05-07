@@ -26,8 +26,13 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
 
-      - name: my action in js 
+      - name: Install dependencies for action
+        run: npm install
+        working-directory: .github/action/deploy-s3
+
+      - name: Run deploy-s3 local action
         uses: ./.github/action/deploy-s3
+
       - name: Use composite action (cache deps)
         uses: ./.github/action/cach-action
 
@@ -74,14 +79,14 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
 
-      - name: Get build artifacts
+      - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: dist-files
           path: ./dist
 
       - name: Show files
-        run: ls
+        run: ls -la
 
       - name: Deploy site
         run: echo "Deploying..."
