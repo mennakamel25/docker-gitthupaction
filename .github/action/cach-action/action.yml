@@ -1,18 +1,30 @@
 name: Cache dependencies
 description: Cache dependencies for faster builds
 
+inputs:
+  cache-deps:
+    description: 'Whether to cache dependencies or not'
+    required: false
+    default: 'true'
+
+outputs:
+  cache-hit:
+    description: 'Whether cache was used'
+    value: ${{ steps.cache.outputs.cache-hit }}
+
 runs:
   using: composite
 
   steps:
   - name: Cache dependencies
     id: cache
-    uses: actions/cache@v3
+    uses: actions/cache@v4
+    if: inputs.cache-deps == 'true'
     with:
       path: node_modules
       key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
 
   - name: Install dependencies
-    if: steps.cache.outputs.cache-hit != 'true'
+    if: steps.cache.outputs.cache-hit != 'true' || inputs.cache-deps == 'false'
     run: npm ci
     shell: bash
