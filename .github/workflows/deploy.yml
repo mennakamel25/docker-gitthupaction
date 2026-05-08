@@ -83,7 +83,7 @@ jobs:
           path: ./dist
 
       - name : get aws permation
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
          role-to-assume: arn:aws:iam::532334935385:role/githupdemo-1
          aws-region: us-east-1
