@@ -1,9 +1,10 @@
 name: Deployment
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  #push:
+  #  branches:
+    #  - main
 
 jobs:
   lint:
@@ -87,6 +88,7 @@ jobs:
         with:
          role-to-assume: arn:aws:iam::532334935385:role/githupdemo-1
          aws-region: us-east-1
+        
       - name: deploy site 
         id: deploy
         uses: ./.github/action/Docker-action
